@@ -26,27 +26,23 @@
 // 2100 ÷ 400 = 5.25 (Not Leap)
 
 // function isLeapYear(year) {
-//   if (year % 4 === 0 && year % 100 === 0 && year % 400 === 0) {
-//     console.log("Leap year");
+//   if (year % 4 === 0) {
+//     if (year % 100 === 0) {
+//       if (year % 400 === 0) {
+//         return "leap year";
+//       } else {
+//         return "not leap year";
+//       }
+//     } else {
+//       return "leap year";
+//     }
 //   } else {
-//     console.log("Not leap year");
+//     return "not leap year";
 //   }
 // }
 
-// isLeapYear(2000);
-
 function isLeapYear(year) {
-  if (year % 4 === 0) {
-    if (year % 100 === 0) {
-      if (year % 400 === 0) {
-        return "leap year";
-      } else {
-        return "not leap year";
-      }
-    } else {
-      return "leap year";
-    }
-  } else {
-    return "not leap year";
-  }
+  // Leap years are divisible by 4
+  // If the year is divisible by 100, it is not a leap year unless it's also divisible by 400
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }

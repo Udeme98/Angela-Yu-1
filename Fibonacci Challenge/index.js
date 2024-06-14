@@ -9,12 +9,20 @@
 // e.g. for (var i = 0; i < 10; i ++)
 
 function fibonacciGenerator(n) {
-  const fArrays = [];
-  for (let i = 0; i <= n; i++) {
-    fArrays.push(n);
-    return fArrays;
+  let fArrays = [];
+  if (n === 1) {
+    fArrays = [0];
+  } else if (n === 2) {
+    fArrays = [0, 1];
+  } else {
+    fArrays = [0, 1];
+
+    for (let i = 2; i < n; i++) {
+      fArrays.push(fArrays[fArrays.length - 2] + fArrays[fArrays.length - 1]);
+    }
   }
+  return fArrays;
 }
 
-const output = fibonacciGenerator(4);
+const output = fibonacciGenerator(7);
 console.log(output);

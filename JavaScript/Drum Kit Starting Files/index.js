@@ -7,12 +7,14 @@ for (let i = 0; i < numberOfButtons; i++) {
 
     const drum = this.innerHTML;
     makeSound(drum);
+    animatedButton(drum);
   });
 }
 
 document.addEventListener("keydown", function (e) {
-  console.log(e.key);
+  //   console.log(e.key);
   makeSound(e.key);
+  animatedButton(e.key);
 });
 
 function makeSound(key) {
@@ -56,4 +58,12 @@ function makeSound(key) {
       console.log(key);
       break;
   }
+}
+
+function animatedButton(currentKey) {
+  let activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(() => {
+    activeButton.classList.remove("pressed");
+  }, 300);
 }
